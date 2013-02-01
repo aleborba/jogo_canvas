@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	  <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+	  <link rel='stylesheet' href='http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css' />
+	  <script src='http://code.jquery.com/jquery-1.8.3.js'></script>
+	  <script src='http://code.jquery.com/ui/1.10.0/jquery-ui.js'></script>
+	  <script src='jogo.js'></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Jogo Canvas</title>
+
+    </head>
+    <body>
+	
+        <div class="wrapper">
+		<h1 id="logo"></h1>
+		<div class="box-questions">
+			<div class="question" id="q15" cod='15'></div>
+			<div class="question" id="q1" cod='1'></div>
+			<div class="question" id="q2" cod='2'></div>
+			<div class="question" id="q3" cod='3'></div>
+			<div class="question" id="q4" cod='4'></div>
+		    	<div class="question" id="q5" cod='5'></div>
+			<div class="question" id="q6" cod='6'></div>
+			<div class="question" id="q7" cod='7'></div>
+			<div class="question" id="q8" cod='8'></div>
+			<div class="question" id="q9" cod='9'></div>
+		    	<div class="question" id="q10" cod='10'></div>
+			<div class="question" id="q11" cod='11'></div>
+			<div class="question" id="q12" cod='12'></div>
+			<div class="question" id="q13" cod='13'></div>
+			<div class="question" id="q14" cod='14'></div>
+			
+		    	<div class="question" id="q16" cod='16'></div>
+			<!--chegada-->
+			<div id="chegada"></div>
+
+	<button type= role='button' aria-disabled='false' id='meu-projeto'>Meu Projeto</button>
+		</div>
+        </div>
+	<div id='dialog-pergunta' title='Pergunta' cod='' id=''>
+		<span id='perg' style='width:700px;'></span>
+	</div>
+	<div id='dialog-projeto' title='Meu Projeto' cod='' id=''>
+		<p>Projeto:<input type='text' id='nome'></p>
+		<p>Empreendedor:<input	type='text' id='empreendedor'></p>
+		<span id='proj' style='width:700px;'></span>
+	</div>
+<!--<button class='question' type= role='button' aria-disabled='false' cod='1' id='q1'></button>-->
+    </body>
+</html>

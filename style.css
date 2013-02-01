@@ -1,0 +1,59 @@
+.wrapper{
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: url('img/fundo.png') no-repeat; background-size:100%;}
+		#logo{
+			width:122px; 
+			height:193px;
+			float:left;
+			margin: 20px 0 0 20px;
+			background: url('img/logo.png') no-repeat;
+			background-size:120px;	
+		}
+		.box-questions{
+			width:960px; 
+			height:400px;
+			left:50%;
+			margin-left:-480px;
+			top:50%;
+			margin-top:-200px;
+			position:absolute;
+		}
+		.question{
+			width:60px; 
+			height:45px;
+			position:absolute;
+			background: url('img/pedra.png') no-repeat;
+			background-size:60px;
+			cursor:pointer;
+		}	
+		
+		.question.respond{background: url('img/pedra-s.png') no-repeat  center bottom; background-size:60px;}
+		#q15{top:230px; left:50px;}
+		#q1{top:195px; left:104px;}
+		#q2{top:150px; left:160px;}
+		#q3{top:110px; left:220px;}
+		#q4{top:155px; left:290px;}
+		#q5{top:200px; left:350px;}
+		#q6{top:255px; left:410px;}
+		#q7{top:220px; left:485px;}
+		#q8{top:185px; left:550px;}
+		#q9{top:230px; left:610px;}
+		#q10{top:280px; left: 655px;}
+		#q11{top:335px; left: 700px;}
+		#q12{top:280px; left: 740px;}
+		#q13{top:230px; left:770px;}
+		#q14{top:185px; left: 800px;}
+		#q16{top:140px; left:825px;}
+		
+		#chegada{
+			position:absolute;
+			width:150px; 
+			height:133px;
+			top:0px; left:800px;
+			background: url('img/chegada.png') no-repeat;
+			background-size:150px;
+		}
