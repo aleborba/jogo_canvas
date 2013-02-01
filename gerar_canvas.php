@@ -1,97 +1,102 @@
 <?php
 
-//TÍTULO DO RELATÓRIO 
-$titulo = "Jogo Canvas - SEBRAE"; 
-//LOGO QUE SERÁ COLOCADO NO RELATÓRIO
+$link = mysql_connect('mysql.anapaulagomes.com', 'anapaulagomes05', 'cp2013');
 
-$imagem = "logo_imasters.png"; 
-//ENDEREÇO DA BIBLIOTECA FPDF 
-$end_fpdf = "/"; 
-//NUMERO DE RESULTADOS POR PÁGINA 
-$por_pagina = 13; 
-//ENDEREÇO ONDE SERÁ GERADO O PDF
+if (!$link) {
+    die('Não conseguiu conectar: ' . mysql_error());
+}
 
-$end_final = "/canvas.pdf";
+$db_selected = mysql_select_db('anapaulagomes05', $link);
 
-//TIPO DO PDF GERADO 
-//F-> SALVA NO ENDEREÇO ESPECIFICADO
-NA VAR END_FINAL 
-$tipo_pdf = "F";
+if (!$db_selected) {
+    die ('Não pode selecionar o banco anapaulagomes05 : ' . mysql_error());
+}
 
-/**************
-NÃO MEXER DAQUI PRA BAIXO ***************/
+include_once('mpdf/mpdf.php');
 
-//CONECTA
-COM O MYSQL
-$conn = mysql_connect($servidor, $usuario, $senha);
-$db = mysql_select_db($bd, $conn); 
-$sql = mysql_query("SELECT A.ID, A.NOME, A.ASSUNTO
-FROM colunistas A", $conn);
-$row = mysql_num_rows($sql);
+class Canvas{
 
-//VERIFICA
-SE RETORNOU ALGUMA LINHA
-if(!$row) { echo "Não retornou nenhum registro";
-die; }
+	public function imprime_canvas(){
 
-//CALCULA
-QUANTAS PÁGINAS VÃO SER NECESSÁRIAS
-$paginas = ceil($row/$por_pagina);
+		$sql = "SELECT * FROM respostas";
 
-//PREPARA
-PARA GERAR O PDF
-define("FPDF_FONTPATH", "$end_fpdf/font/");
-require_once("$end_fpdf/fpdf.php"); 
-$pdf = new FPDF();
+		$resultado = mysql_query($sql);
 
-//INICIALIZA
-AS VARIÁVEIS
-$linha_atual = 0;
-$inicio = 0;
+		$sql_projeto = "SELECT * FROM projeto";
 
-//PÁGINAS
-for($x=1; $x<=$paginas; $x++) {
+		$resultado_projeto = mysql_query($sql_projeto);
 
-//VERIFICA
-$inicio = $linha_atual;
-$fim = $linha_atual + $por_pagina;
-if($fim > $row) $fim = $row;
+$html.= "<img src='img/logo.png' height='62' width='62'>";
 
-$pdf->Open(); 
-$pdf->AddPage(); 
-$pdf->SetFont("Arial", "B", 10);
+$nome = "";
+$empreendedor = "";
 
-$pdf->Image($imagem, 0, 8);
-$pdf->Ln(2);
-$pdf->Cell(185, 8, "Página $x de $paginas",
-0, 0, ‘R’);
+while($row = mysql_fetch_array($resultado_projeto)){
+	$nome = $row['nome'];
+	$empreendedor = $row['empreendedor'];
+}
 
-//QUEBRA
-DE LINHA
-$pdf->Ln(20);
+$html.= "<p><b>Nome do Projeto: $nome</p></b>";
+$html.= "<p><b>Empreendedor: $empreendedor</p></b>";
 
-//MONTA O
-CABEÇALHO 
-$pdf->Cell(15, 8, "", 1, 0, ‘C’); 
-$pdf->Cell(85, 8, "COLUNISTA", 1, 0, ‘L’);
+$r1 = "";
+$r2 = "";
+$r3 = "";
+$r4 = "";
+$r5 = "";
+$r6 = "";
+$r7 = "";
+$r8 = "";
+$r9 = "";
+$r10 = "";
+$r11 = "";
+$r12 = "";
+$r13 = "";
+$r14 = "";
+		while($row = mysql_fetch_array($resultado)){
+			if($row['pergunta_id'] == 1){ $r1 = $row['descricao']; } 
+			if($row['pergunta_id'] == 2){ $r2 = $row['descricao']; }
+			if($row['pergunta_id'] == 3){ $r3 = $row['descricao']; }
+			if($row['pergunta_id'] == 4){ $r4 = $row['descricao']; }
+			if($row['pergunta_id'] == 5){ $r5 = $row['descricao']; }
+			if($row['pergunta_id'] == 6){ $r6 = $row['descricao']; }
+			if($row['pergunta_id'] == 7){ $r7 = $row['descricao']; }
+			if($row['pergunta_id'] == 8){ $r8 = $row['descricao']; }
+			if($row['pergunta_id'] == 9){ $r9 = $row['descricao']; }
+			if($row['pergunta_id'] == 10){ $r10 = $row['descricao']; }
+			if($row['pergunta_id'] == 11){ $r11 = $row['descricao']; }
+			if($row['pergunta_id'] == 12){ $r12 = $row['descricao']; }
+			if($row['pergunta_id'] == 13){ $r13 = $row['descricao']; }
+			if($row['pergunta_id'] == 14){ $r14 = $row['descricao']; }
+		}
 
-$pdf->Cell(85, 8, "ASSUNTO", 1, 1, ‘L’);
+$html.= "<TABLE BORDER=1>";
 
-//EXIBE
-OS REGISTROS 
-for($i=$inicio; $i<$fim; $i++) {
-$pdf->Cell(15, 8, mysql_result($sql, $i, "ID"),
-1, 0, ‘C’); 
-$pdf->Cell(85, 8, mysql_result($sql, $i, "NOME"),
-1, 0, ‘L’); 
-$pdf->Cell(85, 8, mysql_result($sql, $i, "ASSUNTO"),
-1, 1, ‘L’); 
-$linha_atual++;
-}//FECHA FOR(REGISTROS – i)
-}//FECHA FOR(PAGINAS – x)
+$html.= "<TR>
+			<TD ROWSPAN=2><b>Principais Parcerias</b> - {$r13}</TD>
+			<TD><b>Atividades Principais</b> - {$r12}</TD>
+			<TD ROWSPAN=2><b>Proposta de Valor</b> - {$r3} - {$r4}</TD>
+			<TD><b>Relacionamento com Clientes</b> - {$r7} - {$r8}</TD>
+			<TD ROWSPAN=2><b>Segmento de Clientes</b> - {$r1} - {$r2}</TD>
+			</TR>
+			<TR>
+			<TD><b>Recursos Principais</b> - {$r10} - {$r11}</TD>
+			<TD><b>Canais</b> - {$r5} - {$r6}</TD>
+			<TR>
+			<TR>
+			<TD COLSPAN=3><b>Estrutura de Custos</b> - {$r14}</TD>
+			<TD COLSPAN=2><b>Receitas</b> - {$r9}</TD>";
+	
+$html.= "</TABLE>";
 
-//SAIDA DO
-PDF
-$pdf->Output("$end_final", "$tipo_pdf");
+		
+		$mpdf = new mPDF('pt','A4',9);
+		$mpdf->WriteHTML($html);
+		$mpdf->Output('canvas.pdf','I');
+	}
+}
+
+$c = new Canvas();
+$c->imprime_canvas();
 
 ?>

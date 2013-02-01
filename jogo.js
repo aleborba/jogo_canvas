@@ -8,17 +8,14 @@ $(function($){
 		$(".question").each(function(){
 			for(var i=0;i<=cod.length;i++){
 				
-				if($(this).attr("cod")==cod[i]){//$(this).attr("cod")
+				if($(this).attr("cod")==cod[i]){// || $(this).attr("cod") == 1
 					$(this).addClass("respond");
-					console.log("["+i+"] "+$(this).attr("cod") + " - " + cod[i]);
+					//console.log("["+i+"] "+$(this).attr("cod") + " - " + cod[i]);
 				}
 
 			}
 
 		});
-			
-			
-			
   		});
 	});
 
