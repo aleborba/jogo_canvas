@@ -12,7 +12,7 @@ if (!$db_selected) {
     die ('Não pode selecionar o banco anapaulagomes05 : ' . mysql_error());
 }
 
-include_once('mpdf/mpdf.php');
+include_once('../library/mpdf/mpdf.php');
 
 class Canvas{
 
@@ -26,7 +26,7 @@ class Canvas{
 
 		$resultado_projeto = mysql_query($sql_projeto);
 
-$html.= "<img src='img/logo.png' height='62' width='62'>";
+$html.= "<img src='../img/logo.png' height='62' width='62'>";
 
 $nome = "";
 $empreendedor = "";

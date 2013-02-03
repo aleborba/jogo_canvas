@@ -4,13 +4,13 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		background: url('img/fundo.png') no-repeat; background-size:100%;}
+		background: url('../img/fundo.png') no-repeat; background-size:100%;}
 		#logo{
 			width:122px; 
 			height:193px;
 			float:left;
 			margin: 20px 0 0 20px;
-			background: url('img/logo.png') no-repeat;
+			background: url('../img/logo.png') no-repeat;
 			background-size:120px;	
 		}
 		.box-questions{
@@ -26,12 +26,12 @@
 			width:60px; 
 			height:45px;
 			position:absolute;
-			background: url('img/pedra.png') no-repeat;
+			background: url('../img/pedra.png') no-repeat;
 			background-size:60px;
 			cursor:pointer;
 		}	
 		
-		.question.respond{background: url('img/pedra-s.png') no-repeat  center bottom; background-size:60px;}
+		.question.respond{background: url('../img/pedra-s.png') no-repeat  center bottom; background-size:60px;}
 		#q15{top:230px; left:50px;}
 		#q1{top:195px; left:104px;}
 		#q2{top:150px; left:160px;}
@@ -54,6 +54,6 @@
 			width:150px; 
 			height:133px;
 			top:0px; left:800px;
-			background: url('img/chegada.png') no-repeat;
+			background: url('../img/chegada.png') no-repeat;
 			background-size:150px;
 		}
